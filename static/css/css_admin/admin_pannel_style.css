@@ -1,0 +1,240 @@
+/* Root Variables */
+:root {
+    --accent-color: #811514;
+    --base-color: white;
+    --text-color: #2E2B41;
+    --input-color: #F3F0FF;
+}
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--base-color);
+    color: var(--text-color);
+}
+
+.main_page_of_loginpage {
+    background-color: var(--base-color);
+}
+
+/* Header Section */
+.main_header_loginpage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+    padding: 5px;
+}
+
+#ru_logo {
+    width: 60px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+.loginpage_header_rusys {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.loginpage_header_rusys h2 {
+    font-size: clamp(0.8rem, 1vw, 0.9rem);
+    text-align: left;
+    margin-left: 10px;
+}
+
+.loginpage_title_center h1 {
+    font-size: 25px;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.edu_logo img {
+    width: 200px;
+    height: auto;
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+    .main_header_loginpage {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #ru_logo {
+        width: 70px;
+        height: 80px;
+    }
+
+    .loginpage_header_rusys h2 {
+        font-size: 1rem;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .loginpage_title_center h1 {
+        font-size: 40px;
+    }
+
+    .edu_logo img {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main_header_loginpage {
+        padding: 10px;
+    }
+
+    #ru_logo {
+        width: 50px;
+        height: 60px;
+    }
+
+    .loginpage_header_rusys h2 {
+        font-size: 0.9rem;
+    }
+
+    .loginpage_title_center h1 {
+        font-size: 30px;
+    }
+
+    .edu_logo img {
+        width: 150px;
+    }
+}
+
+#login_webpage_divider {
+    border: solid 4px var(--accent-color);
+}
+
+/* Admin Content */
+.admin_login_content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.admin_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.hello_admin {
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.logout_button button {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 16px 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout_button button:hover {
+    background-color: #003366;
+}
+
+/* Button Grid */
+.button_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 100px 60px; /* Space between buttons */
+    margin-top: 20px;
+}
+
+.featured_button_pannel button {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 20px; /* Increased padding for larger buttons */
+    font-size: 18px; /* Slightly larger font size */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+.featured_button_pannel button:hover {
+    background-color: #003366;
+    transform: scale(1.1); /* Slightly larger on hover */
+}
+
+.featured_button_pannel {
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Time and Date Container */
+.time-date-container {
+    text-align: right;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.time-date-container h2 {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.time-date-container p {
+    font-size: 1rem;
+    color: #333;
+    margin: 5px 0;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 10px 0;
+    margin-top: 50px;
+    font-size: 14px;
+}
+
+.footer span {
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main_header_loginpage {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .loginpage_header_rusys {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .edu_logo {
+        margin-top: 10px;
+    }
+
+    .button_grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust for smaller screens */
+        gap: 20px; /* Reduced gap for smaller screens */
+    }
+
+    .featured_button_pannel button {
+        padding: 15px; /* Adjust padding for smaller screens */
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+}

@@ -1,0 +1,186 @@
+        /* General Reset */
+        :root {
+            --accent-color: #811514;
+            --base-color: white;
+            --text-color: #2E2B41;
+            --input-color: #F3F0FF;
+        }
+
+        .main_page_of_loginpage {
+            background-color: var(--base-color);
+        }
+
+        .main_header_loginpage {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        #ru_logo {
+            width: 60px;
+            height: 70px;
+            margin-right: 10px;
+        }
+
+        .loginpage_header_rusys {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .loginpage_header_rusys h2 {
+            font-size: clamp(0.8rem, 1vw, 0.9rem);
+            text-align: left;
+            margin-left: 10px;
+        }
+
+        @media (max-width: 400px) {
+            .loginpage_header_rusys h2 {
+                font-size: clamp(0.6rem, 1vw, 0.8rem);
+                text-align: center;
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 150px) {
+            .loginpage_header_rusys h2 {
+                font-size: clamp(0.4rem, 1vw, 0.6rem);
+            }
+        }
+
+        .loginpage_title_center h1 {
+            font-size: 25px;
+            text-align: center;
+            color: var(--accent-color);
+        }
+
+        .edu_logo img {
+            width: 200px;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .main_header_loginpage {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            #ru_logo {
+                width: 70px;
+                height: 80px;
+            }
+
+            .loginpage_header_rusys h2 {
+                font-size: 1rem;
+                text-align: center;
+                margin-left: 0;
+            }
+
+            .loginpage_title_center h1 {
+                font-size: 40px;
+            }
+
+            .edu_logo img {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main_header_loginpage {
+                padding: 10px;
+            }
+
+            #ru_logo {
+                width: 50px;
+                height: 60px;
+            }
+
+            .loginpage_header_rusys h2 {
+                font-size: 0.9rem;
+            }
+
+            .loginpage_title_center h1 {
+                font-size: 30px;
+            }
+
+            .edu_logo img {
+                width: 150px;
+            }
+        }
+
+        #login_webpage_divider {
+            border: solid 4px var(--accent-color);
+        }
+        
+        #content_heading {
+            text-align: center;
+            font-size: 38px;
+            margin-top: 20px;
+            color: #811514;
+        }
+        #addTeacher, #addStudent {
+            width: 250px;
+
+        }
+        .form-container {
+            margin: 20px auto;
+            font-size: 20px;
+            padding: 20px;
+            max-width: 900px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea, .form-group select, .form-group button {
+            width: 98%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group button {
+            width: auto;
+            background-color: #811514;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .add-more-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 50%;
+        }
+        .add-more-container button {
+            margin-left: 10px;
+        }
+        #send_notice {
+            width: 150px;
+            display: flex;
+        }
+        .footer {
+            text-align: center;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 10px 0;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+
+        .footer span {
+            font-weight: bold;
+        }

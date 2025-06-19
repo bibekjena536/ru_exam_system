@@ -1,0 +1,236 @@
+/* Root Variables */
+:root {
+    --accent-color: #811514;
+    --base-color: white;
+    --text-color: #2E2B41;
+    --input-color: #F3F0FF;
+}
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.main_page_of_loginpage {
+    background-color: var(--base-color);
+}
+
+/* Header Section */
+.main_header_loginpage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+    padding: 5px;
+}
+
+#ru_logo {
+    width: 60px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+.loginpage_header_rusys {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.loginpage_header_rusys h2 {
+    font-size: clamp(0.8rem, 1vw, 0.9rem);
+    text-align: left;
+    margin-left: 10px;
+}
+
+.loginpage_title_center h1 {
+    font-size: 25px;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.edu_logo img {
+    width: 200px;
+    height: auto;
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+    .main_header_loginpage {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #ru_logo {
+        width: 70px;
+        height: 80px;
+    }
+
+    .loginpage_header_rusys h2 {
+        font-size: 1rem;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .loginpage_title_center h1 {
+        font-size: 40px;
+    }
+
+    .edu_logo img {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main_header_loginpage {
+        padding: 10px;
+    }
+
+    #ru_logo {
+        width: 50px;
+        height: 60px;
+    }
+
+    .loginpage_header_rusys h2 {
+        font-size: 0.9rem;
+    }
+
+    .loginpage_title_center h1 {
+        font-size: 30px;
+    }
+
+    .edu_logo img {
+        width: 150px;
+    }
+}
+
+#login_webpage_divider {
+    border: solid 4px var(--accent-color);
+}
+
+/* Time and Date Container */
+.time-date-container {
+    text-align: right;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.time-date-container h2 {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.time-date-container p {
+    font-size: 1rem;
+    color: var(--accent-color);
+    margin: 5px 0;
+}
+
+/* Contact Us Content */
+.contact_us_content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact_us_content h2 {
+    text-align: center;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.contact_us_content p {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    color: black;
+}
+
+/* Contact Cards */
+.contact_card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.contact_card a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact_card a:hover {
+    text-decoration: underline;
+    color: var(--accent-color);
+}
+
+.contact_card h3 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.contact_card p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    color: var(--accent-color);
+}
+
+.contact_card p strong {
+    color: #004080;
+}
+
+/* Footer Section */
+.footer {
+    background-color: var(--accent-color);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact_us_content {
+        padding: 15px;
+    }
+
+    .contact_card {
+        padding: 10px;
+    }
+
+    .contact_card h3 {
+        font-size: 1rem;
+    }
+
+    .contact_card p {
+        font-size: 0.9rem;
+    }
+}

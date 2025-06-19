@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RU Examination System</title>
+    <link rel="stylesheet" href="/static/css/css_admin/view_student_style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div class="main_header_loginpage">
+        <div class="loginpage_header_rusys">
+            <img id="ru_logo" src="/static/img/logo.png" alt="Ravenshaw University Logo">
+            <h2>
+                <b>ରେଭେନ୍ସା ବିଶ୍ଵବିଦ୍ୟାଳୟ ମହାନଦୀ କ୍ୟାମ୍ପସ<br>
+                RAVENSHAW UNIVERSITY <br>MAHANADI CAMPUS<br>
+                <i>"The Temple of Knowledge"</i></b>
+            </h2>
+        </div>
+        <div class="loginpage_title_center">
+            <h1>RU EXAMINATION SYSTEM</h1>
+        </div>
+        <div class="edu_logo">
+            <img src="/static/img/edulogo.png" alt="Education Logo">
+        </div>
+    </div>
+    <div class="time-date-container">
+        <p id="currentDate">Loading date...</p>
+        <p id="currentTime">Loading time...</p>
+    </div>
+    <div class="container mt-3">
+        {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <div class="container">
+        <div class="search-bar">
+            <h2>Student Details</h2>
+            <form action="/admin/admin_view_student" id="autoForm" method="get" class="search-bar">
+            
+                <input type="text" id="textInput" name="student_search" placeholder="Search by Name,department,email,roll no...">
+            </form>
+        </div>
+    
+        {% if user.is_authenticated %}
+        <div class="row mt-3" id="studentList">
+            {% for a in admin_student_dada_view %}
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                <div class="student-card">
+                    <img src="{{a.Student_info_add_student_photo.url }}" alt="Student Photo" class="img-fluid">
+                    <h6>{{a.Student_info_add_student_f_name|upper}} {{a.Student_info_add_student_l_name|upper}}</h6>
+                    <p>Name: {{a.Student_info_add_student_f_name|upper}} {{a.Student_info_add_student_l_name|upper}}</p>
+                    <p>Father: {{a.Student_info_add_student_father_name}}</p>
+                    <p>Branch : {{a.Student_info_add_student_branch}}</p>
+                    <p>Department: {{a.Student_info_add_student_department}}</p>
+                    <p>Phone: +91 {{a.Student_info_add_student_phoneno}}</p>
+                    <p>Email: {{a.Student_info_add_student_email}}</p>
+                    <form action="{% url 'view_studentdetail' a.Student_info_add_student_email %}" method="GET" class="student_card_form">
+                    
+                        <button class="view-button btn btn-primary btn-sm mt-2">View</button>
+                    </form>
+                    <form id="delete_student_{{a.Student_info_add_student_serial_number}}" action="{% url 'delete_student' a.Student_info_add_student_email %}"  onsubmit="return confirm('Are you sure!... you want to delete {{a.Student_info_add_student_f_name | upper}} ?');">
+                        
+                        <button type="submit" class="delete-button btn btn-danger btn-sm mt-2" style="background-color: red; color: white; border: none; padding: 5px 10px; cursor: pointer;">Delete</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>You are not logged in.</p>
+        {% endif %}
+    </div>
+    <div class="footer">
+        © <span id="currentYear"></span> Ravenshaw University. All Rights Reserved.
+    </div>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        function updateTimeAndDate() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', options);
+            document.getElementById('currentTime').textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        }
+        setInterval(updateTimeAndDate, 1000);
+        updateTimeAndDate();
+    </script>
+    <script>
+        let typingTimer;                // Timer identifier
+        const doneTypingInterval = 1000; // Time in ms (1000 = 1 second)
+        const input = document.getElementById('textInput');
+        const form = document.getElementById('autoForm');
+    
+        input.addEventListener('keyup', () => {
+          clearTimeout(typingTimer);
+          typingTimer = setTimeout(() => {
+            form.submit(); // Submit the form
+          }, doneTypingInterval);
+        });
+    
+        input.addEventListener('keydown', () => {
+          clearTimeout(typingTimer); // Reset the timer on keydown
+        });
+      </script>
+</body>
+</html>

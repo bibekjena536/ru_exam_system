@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RU Examination System</title>
+    <link rel="stylesheet" href="/static/css/css_admin/upcomming_exam_style.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="main_page_of_loginpage">
+        <div class="main_header_loginpage">
+            <div class="loginpage_header_rusys">
+                <img id="ru_logo" src="/static/img/logo.png" alt="Ravenshaw University Logo">
+                <h2>
+                    <b>ରେଭେନ୍ସା ବିଶ୍ଵବିଦ୍ୟାଳୟ ମହାନଦୀ କ୍ୟାମ୍ପସ<br>
+                    RAVENSHAW UNIVERSITY <br>MAHANADI CAMPUS<br>
+                    <i>"The Temple of Knowledge"</i></b>
+                </h2>
+            </div>
+            <div class="loginpage_title_center" id="title_holder_loginpage">
+                <h1>RU EXAMINATION SYSTEM</h1>
+            </div>
+            <div class="edu_logo">
+                <img id="edu_logo" src="/static/img/edulogo.png" alt="Education Logo">
+            </div>
+        </div>
+        <hr id="login_webpage_divider">
+        <div class="time-date-container">
+            <p id="currentDate">Loading date...</p>
+            <p id="currentTime">Loading time...</p>
+        </div>
+        <div class="admin_login_content">
+            <div class="admin_header">
+                <div class="hello_admin">Upcoming Exam List</div>
+            </div>
+            <div class="table_for_upcomming_exam">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sl No</th>
+                            <th>Name of Exam</th>
+                            <th>Paper Code</th>
+                            <th>Date of Exam</th>
+                            <th>Time of Exam</th>
+                            <th>Mark</th>
+                            <th>Department</th>
+                            <th>Branch</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Sl No">1</td>
+                            <td data-label="Name of Exam">Cloud Computing</td>
+                            <td data-label="Paper Code">MIT 2.4.1</td>
+                            <td data-label="Date of Exam">15-04-2025</td>
+                            <td data-label="Time of Exam">10:00 AM - 1:00 PM</td>
+                            <td data-label="Mark">80</td>
+                            <td data-label="Department">ITM</td>
+                            <td data-label="Branch">M.Sc ITM</td>
+                            <td data-label="Action">
+                                <button style="background-color: red; color: white; border: none; padding: 5px 10px; cursor: pointer;">Delete</button>
+                            </td>
+                        </tr>
+                        <!-- Add more rows dynamically as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="footer" id="footer_admin_pannel">
+        © <span id="currentYear"></span> Ravenshaw University. All Rights Reserved.
+    </div>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        function updateTimeAndDate() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = now.toLocaleDateString('en-US', options);
+            const formattedTime = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            document.getElementById('currentDate').textContent = formattedDate;
+            document.getElementById('currentTime').textContent = formattedTime;
+        }
+        setInterval(updateTimeAndDate, 1000);
+        updateTimeAndDate();
+    </script>
+</body>
+</html>

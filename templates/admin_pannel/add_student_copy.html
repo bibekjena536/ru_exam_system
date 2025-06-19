@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RU Examination System</title>
+    <link rel="stylesheet" href="/static/css/css_admin/add_student_style.css">
+</head>
+<body>
+    <div class="main_page_of_loginpage">
+        <!-- Header Section -->
+        <div class="main_header_loginpage">
+            <div class="loginpage_header_rusys">
+                <img id="ru_logo" src="/static/img/logo.png" alt="Ravenshaw University Logo">
+                <h2>
+                    <b>
+                        ରେଭେନ୍ସା ବିଶ୍ଵବିଦ୍ୟାଳୟ ମହାନଦୀ କ୍ୟାମ୍ପସ<br>
+                        RAVENSHAW UNIVERSITY<br>
+                        MAHANADI CAMPUS<br>
+                        <i>"The Temple of Knowledge"</i>
+                    </b>
+                </h2>
+            </div>
+            <div class="loginpage_title_center" id="title_holder_loginpage">
+                <h1>RU EXAMINATION SYSTEM</h1>
+            </div>
+            <div class="edu_logo">
+                <img id="edu_logo" src="/static/img/edulogo.png" alt="Education Logo">
+            </div>
+        </div>
+        <hr id="login_webpage_divider">
+
+        <!-- Time and Date Section -->
+        <div class="time-date-container">
+            <p id="currentDate">Loading date...</p>
+            <p id="currentTime">Loading time...</p>
+        </div>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <!-- Add Student Form Section -->
+        <div class="std_login_page">
+            <div class="signup-container">
+                <h2 id="add_student">Add Student</h2>
+                <form action="/admin/admin_model_create_student" method="POST" enctype="multipart/form-data" class="signup-form">
+                    {% csrf_token %}
+                    <!-- Personal Information -->
+                    <label for="first_name">First Name:</label>
+                    <input type="text" id="first_name" name="reg_admin_student_first_name" placeholder="Enter your first name" required>
+
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" id="last_name" name="reg_admin_student_last_name" placeholder="Enter your last name" required>
+
+                    <label for="father_name">Father's Name:</label>
+                    <input type="text" id="father_name" name="reg_admin_student_father_name" placeholder="Enter your father's name" required>
+
+                    <label for="mother_name">Mother's Name:</label>
+                    <input type="text" id="mother_name" name="reg_admin_student_mother_name" placeholder="Enter your mother's name" required>
+
+                    <label for="roll_no">Roll Number:</label>
+                    <input type="text" id="roll_no" name="reg_admin_student_roll_no" placeholder="Enter your roll number" required>
+
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="reg_admin_student_gender" required>
+                        <option value="" disabled selected>Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="reg_admin_student_email" placeholder="Enter your email" required>
+
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="reg_admin_student_dob" required>
+
+                    <label for="contact_number">Contact Number:</label>
+                    <input type="tel" id="contact_number" name="reg_admin_student_contact_number" placeholder="Enter your contact number" required>
+
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="reg_admin_student_address" placeholder="Enter your address" rows="3" required></textarea>
+
+                    <label for="category">Category:</label>
+                    <select id="category" name="reg_admin_student_category" required>
+                        <option value="" disabled selected>Select Category</option>
+                        <option value="general">General</option>
+                        <option value="sc">SC</option>
+                        <option value="st">ST</option>
+                        <option value="obc">OBC</option>
+                    </select>
+
+                    <label for="disability_status">Disability Status:</label>
+                    <select id="disability_status" name="reg_admin_student_disability_status">
+                        <option value="" disabled selected>Select Disability Status</option>
+                        <option value="none">None</option>
+                        <option value="yes">Yes</option>
+                    </select>
+
+                    <!-- Academic Information -->
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="reg_admin_student_password" placeholder="Enter your password" required>
+
+                    <label for="department">Department:</label>
+                    <select id="department" name="reg_admin_student_department" required>
+                        <option value="" disabled selected>Select Department</option>
+                        <option value="ITM">ITM</option>
+                        <option value="CS">Computer Science</option>
+                        <option value="CA">Computer Application</option>
+                    </select>
+
+                    <label for="branch">Branch:</label>
+                    <select id="branch" name="reg_admin_student_branch" required>
+                        <option value="" disabled selected>Select Branch</option>
+                        <option value="ITM">B.Sc. ITM</option>
+                        <option value="MITM">M.Sc. ITM</option>
+                        <option value="BCS">B.Sc. Computer Science</option>
+                        <option value="MCS">M.Sc. Computer Science</option>
+                        <option value="BCA">BCA</option>
+                        <option value="MCA">MCA</option>
+                    </select>
+
+
+                    <!-- Uploads -->
+                    <label for="photo">Upload Photo:</label>
+                    <input type="file" id="photo" name="reg_admin_student_photo" accept="image/*" required onchange="previewFile(this, 'photoPreview')">
+                    <img id="photoPreview" src="#" alt="Photo Preview" style="display:none; width: 100px; height: 100px; margin-top: 10px;">
+                    
+                    <label for="signature">Upload Signature:</label>
+                    <input type="file" id="signature" name="reg_admin_student_signature" accept="image/*" required onchange="previewFile(this, 'signaturePreview')">
+                    <img id="signaturePreview" src="#" alt="Signature Preview" style="display:none; width: 100px; height: 50px; margin-top: 10px;">
+                    
+                    <label for="id_proof">Upload ID Proof:</label>
+                    <input type="file" id="id_proof" name="reg_admin_student_id_proof" accept="image/*,application/pdf" required onchange="previewFile(this, 'idProofPreview')">
+                    <img id="idProofPreview" src="#" alt="ID Proof Preview" style="display:none; width: 100px; height: 100px; margin-top: 10px;">
+
+                    <!-- Form Actions -->
+                    <button type="submit" class="signup-button">Add Student</button>
+                    <button type="reset" class="reset-button">Reset</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Time and File Preview -->
+    <script>
+        // Function to update the current time and date
+        function updateTimeAndDate() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', options);
+            document.getElementById('currentTime').textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        }
+        setInterval(updateTimeAndDate, 1000);
+        updateTimeAndDate();
+
+        // Function to preview uploaded files
+        function previewFile(input, previewId) {
+            const file = input.files[0];
+            const preview = document.getElementById(previewId);
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+    <script>
+        // Function to preview uploaded files
+        function previewFile(input, previewId) {
+            const file = input.files[0];
+            const preview = document.getElementById(previewId);
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block'; // Show the preview
+                };
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = '#';
+                preview.style.display = 'none'; // Hide the preview if no file is selected
+            }
+        }
+    </script>
+</body>
+</html>

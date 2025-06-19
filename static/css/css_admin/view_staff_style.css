@@ -1,0 +1,250 @@
+/* Root Variables */
+:root {
+    --accent-color: #811514;
+    --base-color: white;
+    --text-color: #2E2B41;
+    --input-color: #F3F0FF;
+}
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--base-color);
+    color: var(--text-color);
+}
+
+.main_page_of_loginpage {
+    background-color: var(--base-color);
+}
+
+/* Header Section */
+.main_header_loginpage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+    padding: 5px;
+}
+
+#ru_logo {
+    width: 60px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+.loginpage_header_rusys {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.loginpage_header_rusys h2 {
+    font-size: clamp(0.8rem, 1vw, 0.9rem);
+    text-align: left;
+    margin-left: 10px;
+}
+
+.loginpage_title_center h1 {
+    font-size: 25px;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.edu_logo img {
+    width: 200px;
+    height: auto;
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+    .main_header_loginpage {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #ru_logo {
+        width: 70px;
+        height: 80px;
+    }
+
+    .loginpage_header_rusys h2 {
+        font-size: 1rem;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .loginpage_title_center h1 {
+        font-size: 40px;
+    }
+
+    .edu_logo img {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main_header_loginpage {
+        padding: 10px;
+    }
+
+    #ru_logo {
+        width: 50px;
+        height: 60px;
+    }
+
+    .loginpage_header_rusys h2 {
+        font-size: 0.9rem;
+    }
+
+    .loginpage_title_center h1 {
+        font-size: 30px;
+    }
+
+    .edu_logo img {
+        width: 150px;
+    }
+}
+
+#login_webpage_divider {
+    border: solid 4px var(--accent-color);
+}
+
+/* Container Styles */
+.container {
+    width: 90%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 24px;
+    color: #811514;
+}
+
+/* Search Bar Styles */
+.search-bar {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Time and Date Container */
+.time-date-container {
+    text-align: right;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.time-date-container h2 {
+    font-size: 1.2rem;
+    color: #811514;
+    margin-bottom: 10px;
+}
+
+.time-date-container p {
+    font-size: 1rem;
+    color: #811514;
+    margin: 5px 0;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th, 
+table td {
+    padding: 2px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f4f4f4;
+    color: #811514;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Button Styles */
+.btn {
+    padding: 8px 12px;
+    background-color: #811514;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Table for Mobile View */
+@media (max-width: 968px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    thead tr {
+        display: none; /* Hide table headers */
+    }
+
+    tbody tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+    }
+
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+        border: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tbody td:last-child {
+        border-bottom: none;
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #811514;
+        flex-basis: 40%;
+    }
+}

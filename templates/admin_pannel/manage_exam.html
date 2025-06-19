@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RU Examination System</title>
+    <link rel="stylesheet" href="/static/css/css_admin/manage_exam_style.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="main_page_of_loginpage">
+        <div class="main_header_loginpage">
+            <div class="loginpage_header_rusys">
+                <img id="ru_logo" src="/static/img/logo.png" alt="Ravenshaw University Logo">
+                <h2>
+                    <b>ରେଭେନ୍ସା ବିଶ୍ଵବିଦ୍ୟାଳୟ ମହାନଦୀ କ୍ୟାମ୍ପସ<br>
+                    RAVENSHAW UNIVERSITY <br>MAHANADI CAMPUS<br>
+                    <i>"The Temple of Knowledge"</i></b>
+                </h2>
+            </div>
+            <div class="loginpage_title_center" id="title_holder_loginpage">
+                <h1>RU EXAMINATION SYSTEM</h1>
+            </div>
+            <div class="edu_logo">
+                <img id="edu_logo" src="/static/img/edulogo.png" alt="Education Logo">
+            </div>
+        </div>
+        <hr id="login_webpage_divider">
+        <div class="time-date-container">
+            <p id="currentDate">Loading date...</p>
+            <p id="currentTime">Loading time...</p>
+        </div>
+        <div class="admin_login_content">
+            <div class="admin_header">
+                <div class="hello_admin">Manage Exam</div>
+            </div>
+            <div class="button_grid" id="featured_buttons_admin_pannel">
+                <a href="/admin/admin_create_exam" class="featured_button_pannel" aria-label="Create Exam">
+                    <button>Create Exam</button>
+                </a>
+                <a href="/admin/admin_upcomming_exam" class="featured_button_pannel" aria-label="Upcomming Exam">
+                    <button>Upcomming Exam</button>
+                </a>
+                <a href="/admin/admin_manage_papers" class="featured_button_pannel" aria-label="Manage Papers">
+                    <button>Manage Papers</button>
+                </a>
+                <a href="/admin/admin_send_notice" class="featured_button_pannel" aria-label="Send Notice">
+                    <button>Send Notice</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer" id="footer_admin_pannel">
+        © <span id="currentYear"></span> Ravenshaw University. All Rights Reserved.
+    </div>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        function updateTimeAndDate() {
+                    const now = new Date();
+                    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                    const formattedDate = now.toLocaleDateString('en-US', options);
+                    const formattedTime = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                    document.getElementById('currentDate').textContent = formattedDate;
+                    document.getElementById('currentTime').textContent = formattedTime;
+                }
+                setInterval(updateTimeAndDate, 1000);
+                updateTimeAndDate();
+    </script>
+</body>
+</html>

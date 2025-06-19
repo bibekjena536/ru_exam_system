@@ -1,0 +1,256 @@
+/* Root Variables */
+:root {
+    --accent-color: #811514;
+    --base-color: white;
+    --text-color: #2E2B41;
+    --input-color: #F3F0FF;
+}
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--base-color);
+    color: var(--text-color);
+}
+
+.main_page_of_loginpage {
+    background-color: var(--base-color);
+}
+
+/* Header Section */
+.main_header_loginpage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+    padding: 5px;
+}
+
+#ru_logo {
+    width: 60px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+.loginpage_header_rusys {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.loginpage_header_rusys h2 {
+    font-size: clamp(0.8rem, 1vw, 0.9rem);
+    text-align: left;
+    margin-left: 10px;
+}
+
+.loginpage_title_center h1 {
+    font-size: 25px;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.edu_logo img {
+    width: 200px;
+    height: auto;
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+    .main_header_loginpage {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #ru_logo {
+        width: 70px;
+        height: 80px;
+    }
+
+    .loginpage_header_rusys h2 {
+        font-size: 1rem;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .loginpage_title_center h1 {
+        font-size: 40px;
+    }
+
+    .edu_logo img {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main_header_loginpage {
+        padding: 10px;
+    }
+
+    #ru_logo {
+        width: 50px;
+        height: 60px;
+    }
+
+    .loginpage_header_rusys h2 {
+        font-size: 0.9rem;
+    }
+
+    .loginpage_title_center h1 {
+        font-size: 30px;
+    }
+
+    .edu_logo img {
+        width: 150px;
+    }
+}
+
+#login_webpage_divider {
+    border: solid 4px var(--accent-color);
+}
+
+/* Time and Date Container */
+.time-date-container {
+    text-align: right;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.time-date-container h2 {
+    font-size: 1.2rem;
+    color: #811514;
+    margin-bottom: 10px;
+}
+
+.time-date-container p {
+    font-size: 1rem;
+    color: #811514;
+    margin: 5px 0;
+}
+
+        /* Student Detail Section */
+        .student-detail-container {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+        }
+        
+        .name_of_header {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #811514;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1rem;
+            color: #333;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        td img {
+            display: block;
+            margin: 0 auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Action Buttons */
+        .action-buttons button {
+            padding: 8px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #811514;
+            color: white;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .action-buttons button:hover {
+            background-color: #003366;
+        }
+        
+        /* Download Button */
+        .download-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 20px;
+            background-color: #811514;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+        
+        .download-btn:hover {
+            background-color: #003366;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main_header_loginpage {
+                flex-direction: column;
+                text-align: center;
+            }
+        
+            #ru_logo, #edu_logo {
+                width: 60px;
+            }
+        
+            #title_holder_loginpage h1 {
+                font-size: 1.5rem;
+            }
+        
+            .student-detail-container {
+                width: 95%;
+            }
+        
+            table {
+                font-size: 0.9rem;
+            }
+        }
+        .footer {
+            text-align: center;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 10px 0;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+
+        .footer span {
+            font-weight: bold;
+        }

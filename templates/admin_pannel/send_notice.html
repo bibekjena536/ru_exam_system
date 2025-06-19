@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RU Examination System - Send Notice</title>
+    <link rel="stylesheet" href="/static/css/css_admin/send_notice_style.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="main_page_of_loginpage">
+        <div class="main_header_loginpage">
+            <div class="loginpage_header_rusys">
+                <img id="ru_logo" src="/static/img/logo.png" alt="Ravenshaw University Logo">
+                <h2>
+                    <b>ରେଭେନ୍ସା ବିଶ୍ଵବିଦ୍ୟାଳୟ ମହାନଦୀ କ୍ୟାମ୍ପସ<br>
+                    RAVENSHAW UNIVERSITY <br>MAHANADI CAMPUS<br>
+                    <i>"The Temple of Knowledge"</i></b>
+                </h2>
+            </div>
+            <div class="loginpage_title_center" id="title_holder_loginpage">
+                <h1>RU EXAMINATION SYSTEM</h1>
+            </div>
+            <div class="edu_logo">
+                <img id="edu_logo" src="/static/img/edulogo.png" alt="Education Logo">
+            </div>
+        </div>
+        <hr id="login_webpage_divider">
+
+        <!-- Send Notice Form -->
+        <h2 id="content_heading">Send Notice</h2>
+        <div class="form-container">
+            <form action="/send_notice" method="POST">
+                <!-- To Teacher -->
+                <div class="form-group">
+                    <label for="toTeacher">To Teacher</label>
+                    <div class="add-more-container">
+                        <select id="toTeacher" name="toTeacher">
+                            <option value="" disabled selected>Select Teacher</option>
+                            <option value="teacher1">Teacher 1</option>
+                            <option value="teacher2">Teacher 2</option>
+                            <option value="teacher3">Teacher 3</option>
+                        </select>
+                        <button type="button" id="addTeacher">Add More</button>
+                    </div>
+                </div>
+
+                <!-- To Student -->
+                <div class="form-group">
+                    <label for="toStudent">To Student</label>
+                    <div class="add-more-container">
+                        <input type="text" id="toStudent" name="toStudent" placeholder="Search Student">
+                        <button type="button" id="addStudent">Add Student</button>
+                    </div>
+                </div>
+
+                <!-- Subject -->
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Enter Subject" required>
+                </div>
+
+                <!-- Body -->
+                <div class="form-group">
+                    <label for="body">Body</label>
+                    <textarea id="body" name="body" rows="5" placeholder="Enter Notice Content" required></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group">
+                    <button type="submit" id="send_notice">Send Notice</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="footer" id="footer_admin_pannel">
+            © <span id="currentYear"></span> Ravenshaw University. All Rights Reserved.
+        </div>
+    </div>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        function updateTimeAndDate() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = now.toLocaleDateString('en-US', options);
+            const formattedTime = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            document.getElementById('currentDate').textContent = formattedDate;
+            document.getElementById('currentTime').textContent = formattedTime;
+        }
+        setInterval(updateTimeAndDate, 1000);
+        updateTimeAndDate();
+    </script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+        /* Root Variables */
+/* Root Variables */
+:root {
+    --accent-color: #811514;
+    --base-color: white;
+    --text-color: #2E2B41;
+    --input-color: #F3F0FF;
+  }
+  
+  /* General Styles */
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--base-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  .main_page_of_loginpage {
+    background-color: var(--base-color);
+  }
+  
+  /* Header Section */
+  .main_header_loginpage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+    padding: 5px;
+  }
+  
+  #ru_logo {
+    width: 60px;
+    height: 70px;
+    margin-right: 10px;
+  }
+  
+  .loginpage_header_rusys {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .loginpage_header_rusys h2 {
+    font-size: clamp(0.8rem, 1vw, 0.9rem);
+    text-align: left;
+    margin-left: 10px;
+  }
+  
+  .loginpage_title_center h1 {
+    font-size: 25px;
+    text-align: center;
+    color: var(--accent-color);
+  }
+  
+  .edu_logo img {
+    width: 200px;
+    height: auto;
+  }
+  
+  /* Responsive Header */
+  @media (max-width: 768px) {
+    .main_header_loginpage {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+  
+    #ru_logo {
+        width: 70px;
+        height: 80px;
+    }
+  
+    .loginpage_header_rusys h2 {
+        font-size: 1rem;
+        text-align: center;
+        margin-left: 0;
+    }
+  
+    .loginpage_title_center h1 {
+        font-size: 40px;
+    }
+  
+    .edu_logo img {
+        width: 200px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .main_header_loginpage {
+        padding: 10px;
+    }
+  
+    #ru_logo {
+        width: 50px;
+        height: 60px;
+    }
+  
+    .loginpage_header_rusys h2 {
+        font-size: 0.9rem;
+    }
+  
+    .loginpage_title_center h1 {
+        font-size: 30px;
+    }
+  
+    .edu_logo img {
+        width: 150px;
+    }
+  }
+  
+  #login_webpage_divider {
+    border: solid 4px var(--accent-color);
+  }
+          /* Table Styles */
+          .table_for_upcomming_exam table {
+              width: 60%;
+              margin: 20px auto;
+              border-radius: 8px;
+              border-collapse: collapse;
+              text-align: center;
+          }
+  
+          .table_for_upcomming_exam th, .table_for_upcomming_exam td {
+              padding: 10px;
+              border: 1px solid #ddd;
+          }
+  
+          .table_for_upcomming_exam th {
+              background-color: var(--accent-color);
+              color: white;
+          }
+  
+          /* Responsive Table */
+          @media (max-width: 768px) {
+              .table_for_upcomming_exam table, 
+              .table_for_upcomming_exam thead, 
+              .table_for_upcomming_exam tbody, 
+              .table_for_upcomming_exam th, 
+              .table_for_upcomming_exam td, 
+              .table_for_upcomming_exam tr {
+                  display: block;
+              }
+  
+              .table_for_upcomming_exam tr {
+                  margin-bottom: 15px;
+              }
+  
+              .table_for_upcomming_exam td {
+                  text-align: right;
+                  padding-left: 50%;
+                  position: relative;
+              }
+  
+              .table_for_upcomming_exam td::before {
+                  content: attr(data-label);
+                  position: absolute;
+                  left: 10px;
+                  text-align: left;
+                  font-weight: bold;
+              }
+  
+              .table_for_upcomming_exam th {
+                  display: none;
+              }
+          }
+          /* Time and Date Container */
+  .time-date-container {
+    text-align: right;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .time-date-container h2 {
+    font-size: 1.2rem;
+    color: #811514;
+    margin-bottom: 10px;
+  }
+  
+  .time-date-container p {
+    font-size: 1rem;
+    color: #811514;
+    margin: 5px 0;
+  }
+  
+          .hello_admin{
+              font-size: 2.5rem;
+              text-align: center;
+              margin: 20px 0;
+              color: var(--accent-color);
+          }
+          /* Footer */
+          .footer {
+              text-align: center;
+              background-color: var(--accent-color);
+              color: #fff;
+              padding: 10px 0;
+              margin-top: 50px;
+              font-size: 14px;
+          }
+  
+          .footer span {
+              font-weight: bold;
+          }

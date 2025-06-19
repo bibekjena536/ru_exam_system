@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RU Examination System</title>
+    <link rel="stylesheet" href="/static/css/css_admin/add_staff_style.css">
+</head>
+<body>
+    <div class="main_page_of_loginpage">
+        <!-- Header Section -->
+        <div class="main_header_loginpage">
+            <div class="loginpage_header_rusys">
+                <img id="ru_logo" src="/static/img/logo.png" alt="Ravenshaw University Logo">
+                <h2>
+                    <b>
+                        ରେଭେନ୍ସା ବିଶ୍ଵବିଦ୍ୟାଳୟ ମହାନଦୀ କ୍ୟାମ୍ପସ<br>
+                        RAVENSHAW UNIVERSITY MAHANADI CAMPUS<br>
+                        <i>"The Temple of Knowledge"</i>
+                    </b>
+                </h2>
+            </div>
+            <div class="loginpage_title_center" id="title_holder_loginpage">
+                <h1>RU EXAMINATION SYSTEM</h1>
+            </div>
+        </div>
+        <hr id="login_webpage_divider">
+
+        <!-- Time and Date Section -->
+        <div class="add_staff_member_body">
+            <div class="time-date-container">
+                <p id="currentDate">Loading date...</p>
+                <p id="currentTime">Loading time...</p>
+            </div>
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+            <!-- Add Staff Title Section -->
+            <div class="add_staff_title_container">
+                <div class="add_staff_title">Add Staff Member</div>
+                <a href="/admin/admin_view_staff">
+                    <button id="view_staff_button" class="view_staff_button">View Staff</button>
+                </a>
+            </div>
+
+            <!-- Add Staff Form -->
+            <form id="required_members_detail" action="/admin/admin_model_create_teacher" method="POST">
+                {% csrf_token %}
+                <div class="staff_member_form">
+                    <label for="honorifics_of_staff">Honorifics:</label>
+                    <select id="honorifics_of_staff" name="honorifics_of_staff" required>
+                        <option value="" disabled selected>Select Honorifics</option>
+                        <option value="Dr.">Dr.</option>
+                        <option value="Mr.">Mr.</option>
+                        <option value="Mrs.">Mrs.</option>
+                        <option value="Miss">Miss</option>
+                    </select>
+
+                    <label for="staff_member_first_name">First Name:</label>
+                    <input type="text" id="staff_member_first_name" name="staff_member_first_name" required>
+
+                    <label for="staff_member_last_name">Last Name:</label>
+                    <input type="text" id="staff_member_last_name" name="staff_member_last_name" required>
+
+                    <label for="staff_member_email">Email:</label>
+                    <input type="email" id="staff_member_email" name="staff_member_email" required>
+
+                    <label for="staff_member_password">Password:</label>
+                    <input type="password" id="staff_member_password" name="staff_member_password" required>
+                    
+                    <label for="staff_member_password">Confirm Password:</label>
+                    <input type="password" id="staff_member_confirm_password" name="staff_member_confirm_password" required>
+
+                    <label for="staff_member_phone">Phone:</label>
+                    <input type="number" id="staff_member_phone" name="staff_member_phone" required>
+
+                    <label for="staff_member_designation">Designation:</label>
+                    <select id="staff_member_designation" name="staff_member_designation" required>
+                        <option value="" disabled selected>Select Designation</option>
+                        <option value="Head of Department">Head of Department</option>
+                        <option value="Professor">Professor</option>
+                        <option value="Assistant Professor">Assistant Professor</option>
+                        <option value="Lecturer">Lecturer</option>
+                        <option value="Office Assistant">Office Assistant</option>
+                    </select>
+
+                    <label for="staff_member_department">Department:</label>
+                    <select id="staff_member_department" name="staff_member_department" required>
+                        <option value="" disabled selected>Select Department</option>
+                        <option value="ITM">ITM</option>
+                        <option value="CS">Computer Science</option>
+                        <option value="CA">Computer Application</option>
+                    </select>
+                    
+                </div>
+                <div class="staff_buttons">
+                    <div class="add_staff_member_button">
+                        <button type="submit" id="add_staff_member_button">Submit</button>
+                    </div>
+                    <div class="add_staff_member_button">
+                        <button type="reset" id="reset_button">Reset</button>
+                    </div>
+                    
+                </div>
+            </form>
+
+            <br>
+            <div class="add_staff_member_button">
+                <a href="/admin/admin_admin_pannel"><button type="back" id="back_button">Back</button></a>
+            </div>
+
+            <!-- Action Buttons -->
+            
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer" id="footer_admin_pannel">
+            © <span id="currentYear"></span> Ravenshaw University. All Rights Reserved.
+        </div>
+
+        <script>
+            // Dynamically set the current year in the footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // Handle form submission
+            document.getElementById('add_staff_member_button').addEventListener('click', function (event) {
+                const form = document.getElementById('required_members_detail');
+                const inputs = form.querySelectorAll('input, select');
+                let isValid = true;
+
+                inputs.forEach(input => {
+                    if (!input.value) {
+                        isValid = false;
+                        input.style.borderColor = 'red'; // Highlight the empty field
+                    } else {
+                        input.style.borderColor = ''; // Reset the border color if valid
+                    }
+                });
+
+                if (!isValid) {
+                    event.preventDefault(); // Prevent form submission
+                    alert('Please fill out all required fields.');
+                }
+            });
+
+            // Handle form reset
+            document.getElementById('reset_button').addEventListener('click', function () {
+                const form = document.getElementById('required_members_detail');
+
+                // Reset the form fields
+                form.reset();
+
+                // Clear any custom styles (e.g., red borders for validation errors)
+                const inputs = form.querySelectorAll('input, select');
+                inputs.forEach(input => {
+                    input.style.borderColor = ''; // Reset border color
+                });
+
+                // Optionally, display a confirmation message
+                alert('Form has been reset.');
+            });
+
+            
+        </script>
+        <script>
+            // Password validation function
+            function validatePassword() {
+                const password = document.getElementById('staff_member_password').value;
+                const confirmPassword = document.getElementById('staff_member_confirm_password').value;
+        
+                // Regular expression for password validation
+                const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+        
+                // Check if passwords match
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match. Please try again.');
+                    return false;
+                }
+        
+                // Check if password meets the criteria
+                if (!passwordRegex.test(password)) {
+                    alert('Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.');
+                    return false;
+                }
+        
+                return true;
+            }
+        
+            // Attach the validation function to the form submission
+            document.getElementById('add_staff_member_button').addEventListener('click', function (event) {
+                if (!validatePassword()) {
+                    event.preventDefault(); // Prevent form submission if validation fails
+                }
+            });
+        </script>
+        <script>
+            // Function to update the current time and date
+            function updateTimeAndDate() {
+                const now = new Date();
+
+                // Format the date
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const formattedDate = now.toLocaleDateString('en-US', options);
+
+                // Format the time
+                const formattedTime = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+                // Update the HTML elements
+                document.getElementById('currentDate').textContent = formattedDate;
+                document.getElementById('currentTime').textContent = formattedTime;
+            }
+
+            // Update the time and date every second
+            setInterval(updateTimeAndDate, 1000);
+
+            // Initial call to display the time and date immediately
+            updateTimeAndDate();
+        </script>
+    </div>
+</body>
+</html>
